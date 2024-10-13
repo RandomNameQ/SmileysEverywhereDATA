@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBP Image Manager</title>
+</head>
+<body>
+    <h1>WEBP Image Manager</h1>
+    <div id="imageList"></div>
+
+    <script src="scripts/image_manager.js"></script>
+    <script>
+        const baseUrl = 'https://raw.githubusercontent.com/your-username/your-repo/main';
+        const imageManager = new ImageManager(baseUrl);
+
+        // Добавьте ваши изображения здесь
+        imageManager.addImage('example1.webp');
+        imageManager.addImage('another-image.webp');
+
+        // Отображение списка изображений
+        const imageList = document.getElementById('imageList');
+        const images = imageManager.getAllImages();
+        for (const [name, url] of Object.entries(images)) {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = name;
+            img.style.maxWidth = '200px';
+            img.style.margin = '10px';
+            imageList.appendChild(img);
+        }
+    </script>
+</body>
+</html>
