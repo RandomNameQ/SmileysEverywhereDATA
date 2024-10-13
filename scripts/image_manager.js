@@ -6,7 +6,7 @@ class ImageManager {
 
   addImage(filename) {
     const name = this.getNameFromFilename(filename);
-    const url = `${this.baseUrl}/images/webp/${filename}`;
+    const url = `${this.baseUrl}/${filename}`;
     this.images[name] = url;
   }
 
@@ -28,15 +28,19 @@ class ImageManager {
 }
 
 // Создаем экземпляр ImageManager
-const baseUrl = 'https://raw.githubusercontent.com/your-username/your-repo/main';
+const baseUrl = 'https://raw.githubusercontent.com/RandomNameQ/SmileysEverywhereDATA/main/images';
 const imageManager = new ImageManager(baseUrl);
 
 // Добавляем изображения
-imageManager.addImage('example1.webp');
-imageManager.addImage('another-image.webp');
+imageManager.addImage('NOOO.webp');
+imageManager.addImage('catJam.webp');
+imageManager.addImage('catKISS.webp');
+imageManager.addImage('popCat.webp');
 
-// Сохраняем JSON в файл
-const fs = require('fs');
-fs.writeFileSync('images.json', imageManager.toJSON());
+// Выводим JSON в консоль (для проверки)
+console.log(imageManager.toJSON());
 
-console.log('JSON file has been saved.');
+// Если вы запускаете это на сервере с Node.js, раскомментируйте следующие строки:
+// const fs = require('fs');
+// fs.writeFileSync('images.json', imageManager.toJSON());
+// console.log('JSON file has been saved.');
